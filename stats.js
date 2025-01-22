@@ -4,10 +4,21 @@ var Stats = function () {
         var f, c, e;
         for (c = 0; c < 30; c++)
             for (f = 0; f < 73; f++)
-                e = (f + c * 74) * 4, a[e] = a[e + 4], a[e + 1] = a[e + 5], a[e + 2] = a[e + 6];
+                e = (f + c * 74) * 4,
+                    a[e] = a[e + 4],
+                    a[e + 1] = a[e + 5],
+                    a[e + 2] = a[e + 6];
         for (c = 0; c < 30; c++)
-            e = (73 + c * 74) * 4, c < g ? (a[e] = b[d].bg.r, a[e + 1] = b[d].bg.g, a[e + 2] = b[d].bg.b) :
-                (a[e] = b[d].fg.r, a[e + 1] = b[d].fg.g, a[e + 2] = b[d].fg.b)
+            e = (73 + c * 74) * 4,
+                c < g ? (
+                    a[e] = b[d].bg.r,
+                    a[e + 1] = b[d].bg.g,
+                    a[e + 2] = b[d].bg.b
+                ) : (
+                    a[e] = b[d].fg.r,
+                    a[e + 1] = b[d].fg.g,
+                    a[e + 2] = b[d].fg.b
+                )
     }
     var r = 0,
         t = 2,
@@ -35,8 +46,8 @@ var Stats = function () {
                 fg: { r: 255, g: 0, b: 128 }
             }
         };
-    
-        g = document.createElement("div");
+
+    g = document.createElement("div");
     g.style.cursor = "pointer";
     g.style.width = "80px";
     g.style.opacity = "0.9";
@@ -55,13 +66,13 @@ var Stats = function () {
             case 2: h.style.display = "block"
         }
     }, !1);
-    
+
     k = document.createElement("div");
     k.style.backgroundColor = "rgb(" + Math.floor(b.fps.bg.r / 2) + "," + Math.floor(b.fps.bg.g / 2) + "," + Math.floor(b.fps.bg.b / 2) + ")";
     k.style.padding = "2px 0px 3px 0px";
-   
+
     g.appendChild(k);
-    
+
     d = document.createElement("div");
     d.style.fontFamily = "Helvetica, Arial, sans-serif";
     d.style.textAlign = "left";
@@ -69,38 +80,38 @@ var Stats = function () {
     d.style.color = "rgb(" + b.fps.fg.r + "," + b.fps.fg.g + "," + b.fps.fg.b + ")";
     d.style.margin = "0px 0px 1px 3px";
     d.innerHTML = '<span style="font-weight:bold">FPS</span>';
-    
+
     k.appendChild(d); a = document.createElement("canvas");
-    
+
     a.width = 74; a.height = 30;
     a.style.display = "block";
     a.style.marginLeft = "3px"; k.appendChild(a);
-    
+
     m = a.getContext("2d");
     m.fillStyle = "rgb(" + b.fps.bg.r + "," + b.fps.bg.g + "," + b.fps.bg.b + ")";
     m.fillRect(0, 0, a.width, a.height);
-    
+
     y = m.getImageData(0, 0, a.width, a.height);
-    
+
     f = document.createElement("div");
     f.style.backgroundColor = "rgb(" + Math.floor(b.ms.bg.r / 2) + "," + Math.floor(b.ms.bg.g / 2) + "," + Math.floor(b.ms.bg.b / 2) + ")";
     f.style.padding = "2px 0px 3px 0px"; f.style.display = "none"; g.appendChild(f);
-    
+
     c = document.createElement("div");
     c.style.fontFamily = "Helvetica, Arial, sans-serif";
     c.style.textAlign = "left"; c.style.fontSize = "9px"; c.style.color = "rgb(" + b.ms.fg.r + "," + b.ms.fg.g + "," + b.ms.fg.b + ")";
     c.style.margin = "0px 0px 1px 3px"; c.innerHTML = '<span style="font-weight:bold">MS</span>';
-    
+
     f.appendChild(c); a = document.createElement("canvas"); a.width = 74; a.height = 30;
-    
+
     a.style.display = "block";
     a.style.marginLeft = "3px";
-    
+
     f.appendChild(a); o = a.getContext("2d");
-    
+
     o.fillStyle = "rgb(" + b.ms.bg.r + "," + b.ms.bg.g + "," + b.ms.bg.b + ")";
     o.fillRect(0, 0, a.width, a.height); B = o.getImageData(0, 0, a.width, a.height);
-    
+
     try {
         performance && performance.memory && performance.memory.totalJSHeapSize &&
             (t = 3)
